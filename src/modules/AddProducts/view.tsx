@@ -5,7 +5,7 @@ import styles from '../CategoriesScreen/style'
 import colors from '../../resources/colors'
 import color from '../../resources/colors';
 import Button from '../../components/Button'
-import Icon from 'react-native-vector-icons/AntDesign'
+import Icon from 'react-native-vector-icons/Ionicons'
 import ProductDetailScreen from '../ProductDetailScreen/view';
 
 // create a component
@@ -143,8 +143,13 @@ class AddProducts extends Component {
                     alignItems: 'center',
                     flexDirection: 'row'
                 }}>
-                    <View style={{ flex: 1, backgroundColor: colors.background }}>
-                        <Text style={{ color: 'white', alignSelf: 'center', justifyContent: 'center', fontSize: 18 }}>ID</Text>
+                    <View style={{ flex: 1, backgroundColor: colors.background, flexDirection: 'row' }}>
+                        <View style={{ flex: 1 }}>
+                            <Text style={{ color: color.background }}>.</Text>
+                        </View>
+                        <View style={{ flex: 1,}}>
+                            <Text style={{ color: 'white', alignSelf: 'center', justifyContent: 'center', fontSize: 18 }}>ID</Text>
+                        </View>
                     </View>
                     <View style={{ flex: 2, backgroundColor: colors.background }}>
                         <Text style={{ color: 'white', alignSelf: 'center', justifyContent: 'center', fontSize: 18 }}>Name</Text>
@@ -173,13 +178,34 @@ class AddProducts extends Component {
                                     flexDirection: 'row',
                                 }}
                                 >
-                                    <View style={{ flex: 1, backgroundColor: !product.added ? colors.foreground : colors.white }}>
-                                        <Text style={{ color: color.background, alignSelf: 'center', justifyContent: 'center', fontSize: 18 }}>{product.id}</Text>
+                                    <View style={{ flex: 1, flexDirection: 'row', backgroundColor: color.foreground }}>
+
+                                        {!product.added ?
+                                            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                                                <Icon
+                                                    name={'md-square-outline'}
+                                                    color={color.background}
+                                                    size={25}
+                                                />
+                                            </View>
+                                            :
+                                            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                                                <Icon
+                                                    // name={'md-square'}
+                                                    name={'ios-checkbox-outline'}
+                                                    color={color.background}
+                                                    size={25}
+                                                />
+                                            </View>
+                                        }
+                                        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                                            <Text style={{ color: color.background, alignSelf: 'center', justifyContent: 'center', fontSize: 18 }}>{product.id}</Text>
+                                        </View>
                                     </View>
-                                    <View style={{ flex: 2, backgroundColor: !product.added ? colors.foreground : colors.white }}>
+                                    <View style={{ flex: 2, backgroundColor: color.foreground }}>
                                         <Text style={{ color: color.background, alignSelf: 'center', justifyContent: 'center', fontSize: 18 }}>{product.name}</Text>
                                     </View>
-                                    <View style={{ flex: 2, backgroundColor: !product.added ? colors.foreground : colors.white }}>
+                                    <View style={{ flex: 2, backgroundColor: color.foreground }}>
                                         <View style={{ flexDirection: 'row', flex: 1 }}>
                                             {/* <View style={{ alignItems: 'flex-end', marginRight: 5, justifyContent: 'center', flex: 1 }}>
                                     <TouchableOpacity onPress={() => this.plusQuantity(product.id)}>
@@ -208,7 +234,7 @@ class AddProducts extends Component {
                                 </View> */}
                                         </View>
                                     </View>
-                                    <View style={{ flex: 1, backgroundColor: !product.added ? colors.foreground : colors.white }}>
+                                    <View style={{ flex: 1, backgroundColor: color.foreground }}>
                                         <Text style={{ color: color.background, alignSelf: 'center', justifyContent: 'center', fontSize: 18 }}>{product.price}</Text>
                                     </View>
                                 </View>
@@ -216,10 +242,10 @@ class AddProducts extends Component {
                         )
                     }
                     )}
-                <View style={{marginTop:30}}>
+                <View style={{ marginTop: 30 }}>
                     <Button style={{ backgroundColor: color.background }}
                         textStyle={{ color: color.foreground }}
-                        onPress={()=>this.props.navigation.navigate('CategoriesScreen')}
+                        onPress={() => this.props.navigation.navigate('CategoriesScreen')}
                     >Done</Button>
                 </View>
             </ScrollView>

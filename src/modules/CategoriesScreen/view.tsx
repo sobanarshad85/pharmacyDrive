@@ -11,19 +11,21 @@ import Icon from 'react-native-vector-icons/AntDesign'
 
 // create a component
 class CategoriesScreen extends Component {
-    static navigationOptions = ({ navigation }) => {
-        return {
-            title: 'Vehicle Check Form',
-            headerTitleStyle: {
-                fontSize: 15
-            },
-            headerTintColor: colors.white,
-            headerStyle: {
-                backgroundColor: colors.backgroundColor,
-            },
-        }
-    };
-
+    // static navigationOptions = ({ navigation }) => {
+    //     return {
+    //         title: 'Vehicle Check Form',
+    //         headerTitleStyle: {
+    //             fontSize: 15
+    //         },
+    //         headerTintColor: colors.white,
+    //         headerStyle: {
+    //             backgroundColor: colors.backgroundColor,
+    //         },
+    //     }
+    // };
+static navigationOptions ={
+    header:null
+}
     constructor() {
         super();
         this.state = {
@@ -157,7 +159,7 @@ class CategoriesScreen extends Component {
             addedProducts: copyState
         })
     }
-    
+
     render() {
         let { loading } = this.state
         return (
@@ -171,7 +173,7 @@ class CategoriesScreen extends Component {
                 < ScrollView >
 
                     <View style={styles.vehicleShortDetailsSection}>
-                        
+
                         {
                             this.state.dynamicInputs.map((it, key) => {
                                 return (
@@ -284,6 +286,7 @@ class CategoriesScreen extends Component {
 
                     <View style={{
                         marginTop: 30,
+                        marginBottom: 30,
                         width: '90%',
                         justifyContent: 'center',
                         alignSelf: 'center',
@@ -295,7 +298,7 @@ class CategoriesScreen extends Component {
                                 iconDetails={{ name: 'plus', color: color.foreground }}
                                 style={{ backgroundColor: color.background }}
                                 textStyle={{ color: color.foreground }}
-                                onPress={()=>this.props.navigation.navigate('AddProducts')}
+                                onPress={() => this.props.navigation.navigate('AddProducts')}
                             >
                                 Add Product
                     </Button>

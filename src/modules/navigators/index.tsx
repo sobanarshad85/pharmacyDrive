@@ -28,11 +28,11 @@ const AppStack = createBottomTabNavigator({
     CategoriesScreen: {
         screen: Categories,
         navigationOptions: {
-            tabBarLabel: 'Categories',
+            tabBarLabel: 'Orders',
             tabBarIcon: ({ tintColor }) => (
                 <Entypo
                     reverse
-                    name='home'
+                    name='archive'
                     type='font-awesome'
                     color={tintColor}
                     size={iconSize}
@@ -43,11 +43,26 @@ const AppStack = createBottomTabNavigator({
     ProductScreens: {
         screen: ProductScreens,
         navigationOptions: {
-            tabBarLabel: 'Products',
+            tabBarLabel: 'Receipts',
             tabBarIcon: ({ tintColor }) => (
                 <Entypo
                     reverse
-                    name='archive'
+                    name='print'
+                    type='font-awesome'
+                    color={tintColor}
+                    size={iconSize}
+                />
+            )
+        }
+    },
+    ProductScreenss: {
+        screen: ProductScreens,
+        navigationOptions: {
+            tabBarLabel: 'Reports',
+            tabBarIcon: ({ tintColor }) => (
+                <Entypo
+                    reverse
+                    name='documents'
                     type='font-awesome'
                     color={tintColor}
                     size={iconSize}
