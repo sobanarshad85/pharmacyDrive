@@ -8,6 +8,7 @@ import colors from '../../resources/colors'
 import color from '../../resources/colors';
 import Button from '../../components/Button'
 import Icon from 'react-native-vector-icons/AntDesign'
+import Modal from '../../components/Modal'
 
 // create a component
 class CategoriesScreen extends Component {
@@ -23,13 +24,14 @@ class CategoriesScreen extends Component {
     //         },
     //     }
     // };
-static navigationOptions ={
-    header:null
-}
+    static navigationOptions = {
+        header: null
+    }
     constructor() {
         super();
         this.state = {
             loading: true,
+            openModal: false,
             addedProducts: [
                 {
                     id: 1,
@@ -159,6 +161,7 @@ static navigationOptions ={
             addedProducts: copyState
         })
     }
+
 
     render() {
         let { loading } = this.state
@@ -293,7 +296,7 @@ static navigationOptions ={
                         alignItems: 'center',
                         flexDirection: 'row'
                     }}>
-                        <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
+                        <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' ,marginRight:2}}>
                             <Button
                                 iconDetails={{ name: 'plus', color: color.foreground }}
                                 style={{ backgroundColor: color.background }}
@@ -303,11 +306,12 @@ static navigationOptions ={
                                 Add Product
                     </Button>
                         </View>
-                        <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
+                        <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' ,marginLeft:2}}>
                             <Button
                                 iconDetails={{ name: 'check', color: color.foreground }}
                                 style={{ backgroundColor: color.background }}
                                 textStyle={{ color: color.foreground }}
+                                onPress={() => this.props.navigation.navigate('ConfirmOrder')}
                             >
                                 Confirm Order
                     </Button>

@@ -11,10 +11,12 @@ import ProductDetailScreen from '../ProductDetailScreen/view';
 import Entypo from 'react-native-vector-icons/Entypo';
 import color from '../../resources/colors'
 import AddProducts from '../AddProducts/view'
+import ConfirmOrder from '../ConfirmOrder/view'
 
 const Categories = createStackNavigator({
     CategoriesScreen: { screen: CategoriesScreen },
-    AddProducts: { screen : AddProducts}
+    AddProducts: { screen : AddProducts},
+    ConfirmOrder:{ screen : ConfirmOrder}
 })
 
 const ProductScreens = createStackNavigator({
