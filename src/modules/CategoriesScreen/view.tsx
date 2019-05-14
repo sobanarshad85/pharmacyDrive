@@ -24,9 +24,19 @@ class CategoriesScreen extends Component {
     //         },
     //     }
     // };
-    static navigationOptions = {
-        header: null
-    }
+    static navigationOptions = ({ navigation }: any) => {
+        return {
+            title: 'Orders',
+            headerTitleStyle: {
+                fontSize: 17
+            },
+            headerTintColor: color.foreground,
+            headerStyle: {
+                backgroundColor: color.background,
+            },
+
+        }
+    };
     constructor() {
         super();
         this.state = {
@@ -181,7 +191,7 @@ class CategoriesScreen extends Component {
                             this.state.dynamicInputs.map((it, key) => {
                                 return (
                                     it.type === 'picker' ?
-                                        <View style={{ width: '100%', marginTop: 10, }} key={key}>
+                                        <View style={{ width: '100%',  }} key={key}>
                                             <Text style={{ fontWeight: 'bold', color: colors.background }}>{this.state.dynamicInputs[it.id].heading}</Text>
                                             <Picker
                                                 selectedValue={this.state.dynamicInputs[it.id].response}
@@ -311,7 +321,7 @@ class CategoriesScreen extends Component {
                                 iconDetails={{ name: 'check', color: color.foreground }}
                                 style={{ backgroundColor: color.background }}
                                 textStyle={{ color: color.foreground }}
-                                onPress={() => this.props.navigation.navigate('ConfirmOrder')}
+                                onPress={() => this.props.navigation.navigate('ProductScreens')}
                             >
                                 Confirm Order
                     </Button>
